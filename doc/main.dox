@@ -1,0 +1,128 @@
+/// @mainpage "demo3" Binary Protocol Library
+/// @tableofcontents
+/// This generated code implements "demo3" binary protocol using various
+/// classes from
+/// <a href="https://github.com/arobenko/comms_champion#comms-library">COMMS Library</a>.@n
+/// Below is a short summary of generated classes.
+/// Please refer to <b>"How to Use Defined Custom Protocol"</b> page of its documentation
+/// for detailed explanation on how to use them.
+///
+/// @b NOTE, that the generated protocol code is mostly declarative statements
+/// of classes and types definitions. It is self explanatory and easy to read.
+/// In many cases it is easier to read and understand the generated code, than the
+/// doxygen generated documentation. Please spend some time on browsing around
+/// and looking at the generated code in addition to reading this documentation.
+///
+/// @section main_messages Available Message Classes
+/// The following namespaces contain all the classes describing available messages:
+/// @li @ref demo3::message (residing in @b demo3/message directory).
+///
+/// @section main_fields Available Common Fields
+/// The following namespaces contain all definition of all the fields,
+/// which can be references by multiple messages:
+/// @li @ref demo3::field (residing in @b demo3/field directory).
+///
+/// @section main_interfaces Common Interface Classes
+/// The available common interface classes are:
+/// @li @ref demo3::Message from @b demo3/Message.h header file).
+///
+/// @section main_frames Frame (Protocol Stack) Classes
+/// The available frame (protocol stack) classes are:
+/// @li @ref demo3::frame::Frame from @b demo3/frame/Frame.h header file).
+///
+/// Every frame class/type definition receives (as a template parameter) a list of
+/// @b input message types it is expected to recognize. Default defintion
+/// uses @ref demo3::AllMessages (defined in @b demo3/AllMessages.h).
+/// @n If protocol defines any uni-directional message, then it is recommended to use
+/// either @ref demo3::ServerInputMessages (from @b demo3/ServerInputMessages.h)
+/// or @ref demo3::ClientInputMessages  (from @b demo3/ClientInputMessages.h)
+///
+/// @section main_customization Customization
+/// Depending on the value of @b customization option passed to the @b commsdsl2comms
+/// code generator, the latter generates @ref demo3::DefaultOptions
+/// struct (defined in @b  demo3/DefaultOptions.h file),
+/// which is used by default thoughout the protocol definition classes.
+/// The struct contains all the available type definition, which can be used to
+/// customize default data structures and/or behaviour of various classes.
+/// If any additional customization is required, just recreate similar struct with
+/// relevant types overriden with new definition. The easiest way is to extend
+/// the demo3::DefaultOptions. For example:
+/// @code
+/// struct MyOptions : public demo3::DefaultOptions
+/// {
+///     struct field : public demo3::DefaultOptions::field
+///     {
+///         // use comms::util::StaticString as storage type
+///         using SomeStringField = comms::option::FixedSizeStorage<32>;
+///     };
+/// };
+/// @endcode
+/// @b NOTE, that inner scope of structs in the demo3::DefaultOptions
+/// resembles scope of namespaces used in protocol definition.
+///
+/// The @b COMMS library also provides a flexible way to configure polymorphic
+/// interface for the message classes. If the defined protocol has multiple
+/// uni-directional messages (marked using @b sender property in the schema),
+/// then it is recommended to define two separate interfaces: one for input,
+/// other for output:
+/// @code
+/// using MyInputMsg =
+///    demo3::Message<
+///        comms::option::ReadIterator<const std::uint8_t*>, // for polymorphic read
+///        comms::option::Handler<MyHandler> // for polymorphic dispatch
+///    >;
+///
+/// using MyOutputMsg =
+///    demo3::Message<
+///        comms::option::WriteIterator<std::uint8_t*>, // for polymorphic write
+///        comms::option::LengthInfoInterface, // for polymorphic serialisation length retrieval
+///        comms::option::IdInfoInterface // for polymorphic message ID retrieval
+///    >;
+/// @endcode
+/// In case there are only few uni-directional messages, it may make sence to define
+/// single interface class:
+/// @code
+/// using MyMsg =
+///    demo3::Message<
+///        comms::option::ReadIterator<const std::uint8_t*>, // for polymorphic read
+///        comms::option::Handler<MyHandler> // for polymorphic dispatch
+///        comms::option::WriteIterator<std::uint8_t*>, // for polymorphic write
+///        comms::option::LengthInfoInterface, // for polymorphic serialisation length retrieval
+///        comms::option::IdInfoInterface // for polymorphic message ID retrieval
+///    >;
+/// @endcode
+/// In this case the code generator may also define demo3::ServerDefaultOptions
+/// (check for existence of demo3/ServerDefaultOptions.h file) and
+/// demo3::ClientDefaultOptions (check for existence of demo3/ClientDefaultOptions.h file).
+/// These structs suppress generation of unnecessary virtual functions which are not
+/// going to be used. Consiger using this structs as options instead of default
+/// demo3::DefaultOptions.
+///
+/// @section main_version Version Dependent Code
+/// The generated code is version dependent. The version information is stored in
+/// one of the fields held by a common interface class (see @ref main_interfaces).
+/// When presence of the field depends on the protocol version, it is defined as
+/// @b comms::field::Optional field which wraps a proper field definition. Please
+/// remember to use @b field() member function to access the wrapped field, before
+/// using @b value() member function to access the actual value.
+/// @code
+/// void handle(SomeMessage& msg)
+/// {
+///     auto& versionDependentField = msg.field_someVersionDependentField();
+///     auto& wrappedField = versionDependentField.field();
+///     auto actualValue = wrappedField.value();
+///     ...
+/// }
+/// @endcode
+/// Every default constructed message will have a version of the schema with
+/// all relevant fields being marked present/missing based on this version information.
+/// If there is a need to send a message with different protocol version information,
+/// the message needs to be brought into a consistent state by calling its @b doRefresh()
+/// member function (or @b refresh() in case of proper polymorphic behavior has been enabled)
+/// after version information has been updated.
+/// @code
+///     demo3::message::SomeMsg<MyOutputMsg> msg;
+///     msg.version() = 4U;
+///     msg.doRefresh(); // will update exists/missing state of every dependent field
+/// @endcode
+
