@@ -36,6 +36,10 @@
 /// @n If protocol defines any uni-directional message, then it is recommended to use
 /// either @ref demo3::ServerInputMessages (from @b demo3/ServerInputMessages.h)
 /// or @ref demo3::ClientInputMessages  (from @b demo3/ClientInputMessages.h)
+/// @b NOTE, that the frame definition does not exactly follow the recommended
+/// instructions from <b>Protocol Stack Definition Tutorial</b> page of @b COMMS
+/// library documentation. The extra customization (see @ref main_customization below)
+/// is performed by passing options to the layers themselves.
 ///
 /// @section main_customization Customization
 /// Depending on the value of @b customization option passed to the @b commsdsl2comms
@@ -95,8 +99,13 @@
 /// (check for existence of demo3/ServerDefaultOptions.h file) and
 /// demo3::ClientDefaultOptions (check for existence of demo3/ClientDefaultOptions.h file).
 /// These structs suppress generation of unnecessary virtual functions which are not
-/// going to be used. Consiger using this structs as options instead of default
+/// going to be used. Consider using this structs as options instead of default
 /// demo3::DefaultOptions.
+///
+/// In case non-custom &lt;id&gt; layer has been used in schema (files), custom,
+/// application-specific allocation options to it may include
+/// @b comms::option::InPlaceAllocation and/or @b comms::option::SupportGenericMessage.
+/// Please see the documentation of the @b COMMS library itself for more details.
 ///
 /// @section main_version Version Dependent Code
 /// The generated code is version dependent. The version information is stored in
