@@ -44,7 +44,9 @@ struct FrameLayers
         struct Version : public
             comms::field::IntValue<
                 demo3::field::FieldBase<>,
-                std::uint8_t
+                std::uint8_t,
+                comms::option::EmptySerialization,
+                comms::option::DefaultNumValue<5U>
             >
         {
             /// @brief Name of the field.
