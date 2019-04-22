@@ -22,7 +22,7 @@ function (cc_plugin_all_messages)
         endif()
     endif ()
 
-    if (OPT_FULL_SOLUTION)
+    if (TARGET ${CC_EXTERNAL_TGT})
         add_dependencies(${name} ${CC_EXTERNAL_TGT})
     endif ()
 endfunction()
@@ -99,7 +99,7 @@ cc_plugin_all_messages()
 
 cc_plugin ("Demo3")
 
-if (OPT_FULL_SOLUTION)
+if (TARGET ${CC_EXTERNAL_TGT})
     install (
         FILES plugin/Demo3.cfg
         DESTINATION ${CONFIG_INSTALL_DIR}

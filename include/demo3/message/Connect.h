@@ -8,9 +8,9 @@
 #include "comms/MessageBase.h"
 #include "comms/field/IntValue.h"
 #include "comms/options.h"
-#include "demo3/DefaultOptions.h"
 #include "demo3/MsgId.h"
 #include "demo3/field/FieldBase.h"
+#include "demo3/options/DefaultOptions.h"
 
 namespace demo3
 {
@@ -22,7 +22,7 @@ namespace message
 /// @tparam TOpt Extra options
 /// @see @ref Connect
 /// @headerfile "demo3/message/Connect.h"
-template <typename TOpt = demo3::DefaultOptions>
+template <typename TOpt = demo3::options::DefaultOptions>
 struct ConnectFields
 {
     /// @brief Definition of <b>"Version"</b> field.
@@ -53,7 +53,7 @@ struct ConnectFields
 /// @tparam TMsgBase Base (interface) class.
 /// @tparam TOpt Extra options
 /// @headerfile "demo3/message/Connect.h"
-template <typename TMsgBase, typename TOpt = demo3::DefaultOptions>
+template <typename TMsgBase, typename TOpt = demo3::options::DefaultOptions>
 class Connect : public
     comms::MessageBase<
         TMsgBase,
