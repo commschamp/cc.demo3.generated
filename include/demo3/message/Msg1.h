@@ -9,9 +9,9 @@
 #include "comms/field/IntValue.h"
 #include "comms/field/Optional.h"
 #include "comms/options.h"
-#include "demo3/DefaultOptions.h"
 #include "demo3/MsgId.h"
 #include "demo3/field/FieldBase.h"
+#include "demo3/options/DefaultOptions.h"
 
 namespace demo3
 {
@@ -23,7 +23,7 @@ namespace message
 /// @tparam TOpt Extra options
 /// @see @ref Msg1
 /// @headerfile "demo3/message/Msg1.h"
-template <typename TOpt = demo3::DefaultOptions>
+template <typename TOpt = demo3::options::DefaultOptions>
 struct Msg1Fields
 {
     /// @brief Definition of <b>"F1"</b> field.
@@ -59,12 +59,19 @@ struct Msg1Fields
     };
     
     /// @brief Definition of <b>"F2"</b> field.
-    using F2 =
+    struct F2 : public
         comms::field::Optional<
             F2Field,
             comms::option::ExistsByDefault,
             comms::option::ExistsUntilVersion<1U>
-        >;
+        >
+    {
+        /// @brief Name of the field.
+        static const char* name()
+        {
+            return F2Field::name();
+        }
+    };
     
     /// @brief Inner field of @ref F3 optional.
     struct F3Field : public
@@ -83,12 +90,19 @@ struct Msg1Fields
     };
     
     /// @brief Definition of <b>"F3"</b> field.
-    using F3 =
+    struct F3 : public
         comms::field::Optional<
             F3Field,
             comms::option::ExistsByDefault,
             comms::option::ExistsSinceVersion<3U>
-        >;
+        >
+    {
+        /// @brief Name of the field.
+        static const char* name()
+        {
+            return F3Field::name();
+        }
+    };
     
     /// @brief Inner field of @ref F4 optional.
     struct F4Field : public
@@ -107,12 +121,19 @@ struct Msg1Fields
     };
     
     /// @brief Definition of <b>"F4"</b> field.
-    using F4 =
+    struct F4 : public
         comms::field::Optional<
             F4Field,
             comms::option::ExistsByDefault,
             comms::option::ExistsBetweenVersions<3U, 4U>
-        >;
+        >
+    {
+        /// @brief Name of the field.
+        static const char* name()
+        {
+            return F4Field::name();
+        }
+    };
     
     /// @brief All the fields bundled in std::tuple.
     using All = std::tuple<
@@ -129,7 +150,7 @@ struct Msg1Fields
 /// @tparam TMsgBase Base (interface) class.
 /// @tparam TOpt Extra options
 /// @headerfile "demo3/message/Msg1.h"
-template <typename TMsgBase, typename TOpt = demo3::DefaultOptions>
+template <typename TMsgBase, typename TOpt = demo3::options::DefaultOptions>
 class Msg1 : public
     comms::MessageBase<
         TMsgBase,

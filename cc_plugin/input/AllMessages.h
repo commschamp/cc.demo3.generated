@@ -10,11 +10,16 @@ namespace demo3
 namespace cc_plugin
 {
 
+namespace input
+{
+
 using AllMessages =
     std::tuple<
         demo3::cc_plugin::message::Connect,
         demo3::cc_plugin::message::Msg1
     >;
+
+} // namespace input
 
 } // namespace cc_plugin
 

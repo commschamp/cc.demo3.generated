@@ -13,10 +13,10 @@
 #include "comms/protocol/SyncPrefixLayer.h"
 #include "comms/protocol/TransportValueLayer.h"
 #include "comms/protocol/checksum/Crc.h"
-#include "demo3/AllMessages.h"
-#include "demo3/DefaultOptions.h"
 #include "demo3/field/FieldBase.h"
 #include "demo3/field/MsgId.h"
+#include "demo3/input/AllMessages.h"
+#include "demo3/options/DefaultOptions.h"
 
 namespace demo3
 {
@@ -28,7 +28,7 @@ namespace frame
 /// @tparam TOpt Protocol options.
 /// @see @ref Frame
 /// @headerfile "demo3/frame/Frame.h"
-template <typename TOpt = demo3::DefaultOptions>
+template <typename TOpt = demo3::options::DefaultOptions>
 struct FrameLayers
 {
     /// @brief Definition of layer "Data".
@@ -44,7 +44,9 @@ struct FrameLayers
         struct Version : public
             comms::field::IntValue<
                 demo3::field::FieldBase<>,
-                std::uint8_t
+                std::uint8_t,
+                comms::option::EmptySerialization,
+                comms::option::DefaultNumValue<5U>
             >
         {
             /// @brief Name of the field.
@@ -179,8 +181,8 @@ struct FrameLayers
 /// @headerfile "demo3/frame/Frame.h"
 template <
    typename TMessage,
-   typename TAllMessages = demo3::AllMessages<TMessage>,
-   typename TOpt = demo3::DefaultOptions
+   typename TAllMessages = demo3::input::AllMessages<TMessage>,
+   typename TOpt = demo3::options::DefaultOptions
 >
 class Frame : public
     FrameLayers<TOpt>::template Stack<TMessage, TAllMessages>

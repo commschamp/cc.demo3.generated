@@ -63,6 +63,7 @@ struct VersionLayer
         return
             cc::property::field::ForField<Field>()
                 .name(Field::name())
+                .serialisedHidden()
                 .asMap();
         
     }
