@@ -15,10 +15,10 @@
 #define DEMO3_MINOR_VERSION (6U)
 
 /// @brief Patch version of the protocol library.
-#define DEMO3_PATCH_VERSION (0U)
+#define DEMO3_PATCH_VERSION (1U)
 
 /// @brief Full version of the protocol library as single number.
-#define DEMO3_VERSION (COMMS_MAKE_VERSION(DEMO3_MAJOR_VERSION, DEMO3_MINOR_VERSION, DEMO3_MINOR_VERSION))
+#define DEMO3_VERSION (COMMS_MAKE_VERSION(DEMO3_MAJOR_VERSION, DEMO3_MINOR_VERSION, DEMO3_PATCH_VERSION))
 
 
 namespace demo3
