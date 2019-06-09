@@ -12,8 +12,8 @@ namespace demo3
 /// @brief Message ids enumeration.
 enum MsgId : std::uint8_t
 {
-    MsgId_Connect = 1, ///< message id @b Connect
-    MsgId_Msg1 = 2, ///< message id @b Msg1
+    MsgId_Connect = 1, ///< message id of @b Connect message.
+    MsgId_Msg1 = 2, ///< message id of @b Msg1 message.
     
 };
 
