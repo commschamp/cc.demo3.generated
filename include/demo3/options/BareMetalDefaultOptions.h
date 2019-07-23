@@ -23,25 +23,30 @@ struct BareMetalDefaultOptions
     /// @brief Extra options for messages.
     struct message
     {
-        /// @brief Extra options for @ref demo3::message::Connect message.
-        using Connect = comms::option::EmptyOption;
+        /// @brief Extra options for
+        ///     @ref demo3::message::Connect message.
+        using Connect = comms::option::app::EmptyOption;
         
-        /// @brief Extra options for @ref demo3::message::Msg1 message.
-        using Msg1 = comms::option::EmptyOption;
+        /// @brief Extra options for
+        ///     @ref demo3::message::Msg1 message.
+        using Msg1 = comms::option::app::EmptyOption;
         
     }; // struct message
     
     /// @brief Extra options for frames.
     struct frame
     {
-        /// @brief Extra options for Layers of @ref demo3::frame::Frame frame.
+        /// @brief Extra options for Layers of
+        ///     @ref demo3::frame::Frame frame.
         struct FrameLayers
         {
-            /// @brief Extra options for @ref demo3::frame::FrameLayers::Data layer.
-            using Data = comms::option::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE * 8>;
+            /// @brief Extra options for @ref
+            ///     demo3::frame::FrameLayers::Data layer.
+            using Data = comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE * 8>;
             
-            /// @brief Extra options for @ref demo3::frame::FrameLayers::Id layer.
-            using Id = comms::option::InPlaceAllocation;
+            /// @brief Extra options for @ref
+            ///     demo3::frame::FrameLayers::Id layer.
+            using Id = comms::option::app::InPlaceAllocation;
             
         }; // struct FrameLayers
         

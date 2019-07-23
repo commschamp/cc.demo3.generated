@@ -17,18 +17,20 @@ struct ClientDefaultOptions
     /// @brief Extra options for messages.
     struct message : public DefaultOptions::message
     {
-        /// @brief Extra options for @ref demo3::message::Connect message.
+        /// @brief Extra options for
+        ///     @ref demo3::message::Connect message.
         using Connect =
             std::tuple<
-                comms::option::NoReadImpl,
-                comms::option::NoDispatchImpl
+                comms::option::app::NoReadImpl,
+                comms::option::app::NoDispatchImpl
             >;
         
-        /// @brief Extra options for @ref demo3::message::Msg1 message.
+        /// @brief Extra options for
+        ///     @ref demo3::message::Msg1 message.
         using Msg1 =
             std::tuple<
-                comms::option::NoReadImpl,
-                comms::option::NoDispatchImpl
+                comms::option::app::NoReadImpl,
+                comms::option::app::NoDispatchImpl
             >;
         
     };

@@ -24,7 +24,7 @@ struct MessageFields
         comms::field::IntValue<
             demo3::field::FieldBase<>,
             std::uint8_t,
-            comms::option::DefaultNumValue<5U>
+            comms::option::def::DefaultNumValue<5U>
         >
     {
         /// @brief Name of the field.
@@ -48,19 +48,19 @@ template <typename... TOpt>
 class Message : public
     comms::Message<
         TOpt...,
-        comms::option::BigEndian,
-        comms::option::MsgIdType<demo3::MsgId>,
-        comms::option::ExtraTransportFields<MessageFields::All>,
-        comms::option::VersionInExtraTransportFields<0U>
+        comms::option::def::BigEndian,
+        comms::option::def::MsgIdType<demo3::MsgId>,
+        comms::option::def::ExtraTransportFields<MessageFields::All>,
+        comms::option::def::VersionInExtraTransportFields<0U>
     >
 {
     using Base =
         comms::Message<
             TOpt...,
-            comms::option::BigEndian,
-            comms::option::MsgIdType<demo3::MsgId>,
-            comms::option::ExtraTransportFields<MessageFields::All>,
-            comms::option::VersionInExtraTransportFields<0U>
+            comms::option::def::BigEndian,
+            comms::option::def::MsgIdType<demo3::MsgId>,
+            comms::option::def::ExtraTransportFields<MessageFields::All>,
+            comms::option::def::VersionInExtraTransportFields<0U>
         >;
 public:
     /// @brief Allow access to extra transport fields.

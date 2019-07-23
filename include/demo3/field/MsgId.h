@@ -26,7 +26,7 @@ struct MsgId : public
         demo3::field::FieldBase<>,
         demo3::MsgId,
         TExtraOpts...,
-        comms::option::ValidNumValueRange<1, 2>
+        comms::option::def::ValidNumValueRange<1, 2>
     >
 {
     /// @brief Name of the field.
