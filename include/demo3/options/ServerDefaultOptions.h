@@ -17,18 +17,20 @@ struct ServerDefaultOptions
     /// @brief Extra options for messages.
     struct message : public DefaultOptions::message
     {
-        /// @brief Extra options for @ref demo3::message::Connect message.
+        /// @brief Extra options for
+        ///     @ref demo3::message::Connect message.
         using Connect =
             std::tuple<
-                comms::option::NoWriteImpl,
-                comms::option::NoRefreshImpl
+                comms::option::app::NoWriteImpl,
+                comms::option::app::NoRefreshImpl
             >;
         
-        /// @brief Extra options for @ref demo3::message::Msg1 message.
+        /// @brief Extra options for
+        ///     @ref demo3::message::Msg1 message.
         using Msg1 =
             std::tuple<
-                comms::option::NoWriteImpl,
-                comms::option::NoRefreshImpl
+                comms::option::app::NoWriteImpl,
+                comms::option::app::NoRefreshImpl
             >;
         
     };

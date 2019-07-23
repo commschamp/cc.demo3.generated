@@ -45,8 +45,8 @@ struct FrameLayers
             comms::field::IntValue<
                 demo3::field::FieldBase<>,
                 std::uint8_t,
-                comms::option::EmptySerialization,
-                comms::option::DefaultNumValue<5U>
+                comms::option::def::EmptySerialization,
+                comms::option::def::DefaultNumValue<5U>
             >
         {
             /// @brief Name of the field.
@@ -65,7 +65,7 @@ struct FrameLayers
             typename VersionMembers::Version,
             0U,
             Data,
-            comms::option::PseudoValue
+            comms::option::def::PseudoValue
         >;
     
     /// @brief Definition of layer "Id".
@@ -87,7 +87,7 @@ struct FrameLayers
             comms::field::IntValue<
                 demo3::field::FieldBase<>,
                 std::uint16_t,
-                comms::option::NumValueSerOffset<2>
+                comms::option::def::NumValueSerOffset<2>
             >
         {
             /// @brief Name of the field.
@@ -145,9 +145,9 @@ struct FrameLayers
             comms::field::IntValue<
                 demo3::field::FieldBase<>,
                 std::uint16_t,
-                comms::option::FailOnInvalid<comms::ErrorStatus::ProtocolError>,
-                comms::option::DefaultNumValue<43981L>,
-                comms::option::ValidNumValue<43981L>
+                comms::option::def::FailOnInvalid<comms::ErrorStatus::ProtocolError>,
+                comms::option::def::DefaultNumValue<43981L>,
+                comms::option::def::ValidNumValue<43981L>
             >
         {
             /// @brief Name of the field.

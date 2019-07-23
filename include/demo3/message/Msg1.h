@@ -31,7 +31,7 @@ struct Msg1Fields
         comms::field::IntValue<
             demo3::field::FieldBase<>,
             std::uint8_t,
-            comms::option::DefaultNumValue<1>
+            comms::option::def::DefaultNumValue<1>
         >
     {
         /// @brief Name of the field.
@@ -47,7 +47,7 @@ struct Msg1Fields
         comms::field::IntValue<
             demo3::field::FieldBase<>,
             std::uint8_t,
-            comms::option::DefaultNumValue<2>
+            comms::option::def::DefaultNumValue<2>
         >
     {
         /// @brief Name of the field.
@@ -62,8 +62,8 @@ struct Msg1Fields
     struct F2 : public
         comms::field::Optional<
             F2Field,
-            comms::option::ExistsByDefault,
-            comms::option::ExistsUntilVersion<1U>
+            comms::option::def::ExistsByDefault,
+            comms::option::def::ExistsUntilVersion<1U>
         >
     {
         /// @brief Name of the field.
@@ -78,7 +78,7 @@ struct Msg1Fields
         comms::field::IntValue<
             demo3::field::FieldBase<>,
             std::uint8_t,
-            comms::option::DefaultNumValue<3>
+            comms::option::def::DefaultNumValue<3>
         >
     {
         /// @brief Name of the field.
@@ -93,8 +93,8 @@ struct Msg1Fields
     struct F3 : public
         comms::field::Optional<
             F3Field,
-            comms::option::ExistsByDefault,
-            comms::option::ExistsSinceVersion<3U>
+            comms::option::def::ExistsByDefault,
+            comms::option::def::ExistsSinceVersion<3U>
         >
     {
         /// @brief Name of the field.
@@ -109,7 +109,7 @@ struct Msg1Fields
         comms::field::IntValue<
             demo3::field::FieldBase<>,
             std::uint8_t,
-            comms::option::DefaultNumValue<4>
+            comms::option::def::DefaultNumValue<4>
         >
     {
         /// @brief Name of the field.
@@ -124,8 +124,8 @@ struct Msg1Fields
     struct F4 : public
         comms::field::Optional<
             F4Field,
-            comms::option::ExistsByDefault,
-            comms::option::ExistsBetweenVersions<3U, 4U>
+            comms::option::def::ExistsByDefault,
+            comms::option::def::ExistsBetweenVersions<3U, 4U>
         >
     {
         /// @brief Name of the field.
@@ -155,10 +155,10 @@ class Msg1 : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Msg1,
-        comms::option::StaticNumIdImpl<demo3::MsgId_Msg1>,
-        comms::option::FieldsImpl<typename Msg1Fields<TOpt>::All>,
-        comms::option::MsgType<Msg1<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<demo3::MsgId_Msg1>,
+        comms::option::def::FieldsImpl<typename Msg1Fields<TOpt>::All>,
+        comms::option::def::MsgType<Msg1<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
@@ -166,10 +166,10 @@ class Msg1 : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Msg1,
-            comms::option::StaticNumIdImpl<demo3::MsgId_Msg1>,
-            comms::option::FieldsImpl<typename Msg1Fields<TOpt>::All>,
-            comms::option::MsgType<Msg1<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<demo3::MsgId_Msg1>,
+            comms::option::def::FieldsImpl<typename Msg1Fields<TOpt>::All>,
+            comms::option::def::MsgType<Msg1<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:

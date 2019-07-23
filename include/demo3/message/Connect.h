@@ -30,7 +30,7 @@ struct ConnectFields
         comms::field::IntValue<
             demo3::field::FieldBase<>,
             std::uint8_t,
-            comms::option::DefaultNumValue<5U>
+            comms::option::def::DefaultNumValue<5U>
         >
     {
         /// @brief Name of the field.
@@ -58,10 +58,10 @@ class Connect : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Connect,
-        comms::option::StaticNumIdImpl<demo3::MsgId_Connect>,
-        comms::option::FieldsImpl<typename ConnectFields<TOpt>::All>,
-        comms::option::MsgType<Connect<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<demo3::MsgId_Connect>,
+        comms::option::def::FieldsImpl<typename ConnectFields<TOpt>::All>,
+        comms::option::def::MsgType<Connect<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
@@ -69,10 +69,10 @@ class Connect : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Connect,
-            comms::option::StaticNumIdImpl<demo3::MsgId_Connect>,
-            comms::option::FieldsImpl<typename ConnectFields<TOpt>::All>,
-            comms::option::MsgType<Connect<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<demo3::MsgId_Connect>,
+            comms::option::def::FieldsImpl<typename ConnectFields<TOpt>::All>,
+            comms::option::def::MsgType<Connect<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:
