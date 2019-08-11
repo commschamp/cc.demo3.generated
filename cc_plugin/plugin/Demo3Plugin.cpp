@@ -2,6 +2,7 @@
 
 #include "Demo3Protocol.h"
 
+#include "Demo3ConfigWidget.h"
 namespace cc = comms_champion;
 
 namespace demo3
@@ -14,13 +15,27 @@ namespace plugin
 {
 
 Demo3Plugin::Demo3Plugin()
+  : m_protocol(new Demo3Protocol())
 {
     pluginProperties()
         .setProtocolCreateFunc(
-            []() -> cc::ProtocolPtr
+            [this]() -> cc::ProtocolPtr
             {
-                return cc::ProtocolPtr(new Demo3Protocol());
-            });
+                return m_protocol;
+            })
+        .setConfigWidgetCreateFunc(
+            [this]() -> QWidget*
+            {
+                auto* w =
+                    new Demo3ConfigWidget(
+                        static_cast<Demo3Protocol*>(m_protocol.get())->getVersion());
+                w->setVersionUpdateCb(
+                    [this](int value) {
+                        static_cast<Demo3Protocol*>(m_protocol.get())->setVersion(value);
+                    });
+                return w;
+            })
+            ;
 }
 
 Demo3Plugin::~Demo3Plugin() = default;

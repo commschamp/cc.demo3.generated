@@ -3,6 +3,7 @@
 #include <QtCore/QObject>
 #include <QtCore/QtPlugin>
 #include "comms_champion/Plugin.h"
+#include "comms_champion/Protocol.h"
 
 namespace demo3
 {
@@ -22,6 +23,9 @@ class Demo3Plugin : public comms_champion::Plugin
 public:
     Demo3Plugin();
     virtual ~Demo3Plugin();
+private:
+    comms_champion::ProtocolPtr m_protocol;
+    int m_version = 5U;
 };
 
 } // namespace plugin
