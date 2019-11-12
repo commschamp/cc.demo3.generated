@@ -48,14 +48,12 @@ auto dispatchServerInputMessage(
     case demo3::MsgId_Connect:
     {
         using MsgType = demo3::message::Connect<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case demo3::MsgId_Msg1:
     {
         using MsgType = demo3::message::Msg1<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     default:
         break;
