@@ -64,13 +64,14 @@ class Message : public
         >;
 public:
     /// @brief Allow access to extra transport fields.
-    /// @details See definition of @b COMMS_MSG_TRANSPORT_FIELDS_ACCESS macro
+    /// @details See definition of @b COMMS_MSG_TRANSPORT_FIELDS_NAMES macro
     ///     related to @b comms::Message class from COMMS library
     ///     for details.
     ///
     ///     The generated functions are:
-    ///     @li @b transportField_version() for @ref MessageFields::Version field.
-    COMMS_MSG_TRANSPORT_FIELDS_ACCESS(
+    ///     @li @b TransportField_version type and @b transportField_version() function for
+    ///         @ref MessageFields::Version field.
+    COMMS_MSG_TRANSPORT_FIELDS_NAMES(
         version
     );
 };

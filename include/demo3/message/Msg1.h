@@ -173,17 +173,21 @@ class Msg1 : public
         >;
 
 public:
-    /// @brief Allow access to internal fields.
-    /// @details See definition of @b COMMS_MSG_FIELDS_ACCESS macro
+    /// @brief Provide names and allow access to internal fields.
+    /// @details See definition of @b COMMS_MSG_FIELDS_NAMES macro
     ///     related to @b comms::MessageBase class from COMMS library
     ///     for details.
     ///
-    ///     The generated functions are:
-    ///     @li @b field_f1() for @ref Msg1Fields::F1 field.
-    ///     @li @b field_f2() for @ref Msg1Fields::F2 field.
-    ///     @li @b field_f3() for @ref Msg1Fields::F3 field.
-    ///     @li @b field_f4() for @ref Msg1Fields::F4 field.
-    COMMS_MSG_FIELDS_ACCESS(
+    ///     The generated types and functions are:
+    ///     @li @b Field_f1 type and @b field_f1() fuction
+    ///         for @ref Msg1Fields::F1 field.
+    ///     @li @b Field_f2 type and @b field_f2() fuction
+    ///         for @ref Msg1Fields::F2 field.
+    ///     @li @b Field_f3 type and @b field_f3() fuction
+    ///         for @ref Msg1Fields::F3 field.
+    ///     @li @b Field_f4 type and @b field_f4() fuction
+    ///         for @ref Msg1Fields::F4 field.
+    COMMS_MSG_FIELDS_NAMES(
         f1,
         f2,
         f3,
