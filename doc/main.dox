@@ -68,6 +68,21 @@
 /// @li @ref demo3::dispatch::dispatchClientInputMessageDefaultOptions
 /// (defined in @b demo3/dispatch/DispatchClientInputMessage.h header file).
 ///
+/// There are also some dispatcher objects to be used with
+/// @b comms::processAllWithDispatchViaDispatcher() function or similar.
+/// @li @ref demo3::dispatch::MsgDispatcher
+/// (defined in @b demo3/dispatch/DispatchMessage.h header file).
+/// @li @ref demo3::dispatch::MsgDispatcherDefaultOptions
+/// (defined in @b demo3/dispatch/DispatchMessage.h header file).
+/// @li @ref demo3::dispatch::ServerInputMsgDispatcher
+/// (defined in @b demo3/dispatch/DispatchServerInputMessage.h header file).
+/// @li @ref demo3::dispatch::ServerInputMsgDispatcherDefaultOptions
+/// (defined in @b demo3/dispatch/DispatchServerInputMessage.h header file).
+/// @li @ref demo3::dispatch::ClientInputMsgDispatcher
+/// (defined in @b demo3/dispatch/DispatchClientInputMessage.h header file).
+/// @li @ref demo3::dispatch::ClientInputMsgDispatcherDefaultOptions
+/// (defined in @b demo3/dispatch/DispatchClientInputMessage.h header file).
+///
 /// @section main_customization Customization
 /// Depending on the value of @b customization option passed to the @b commsdsl2comms
 /// code generator, the latter generates @ref demo3::options::DefaultOptions
