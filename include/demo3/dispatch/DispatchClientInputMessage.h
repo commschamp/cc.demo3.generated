@@ -26,11 +26,11 @@ namespace dispatch
 ///     to handle and one for the interface class as well.
 ///     @code
 ///     using MyInterface = demo3::Message<...>;
-///     using MyConnect = demo3::message::Connect<MyInterface, demo3::options::DefaultOptions>;
-///     using MyMsg1 = demo3::message::Msg1<MyInterface, demo3::options::DefaultOptions>;
+///     using MySomeMessage = SomeMessage<MyInterface, demo3::options::DefaultOptions>;
+///     using MySomeOtherMessage = SomeOtherMessage<MyInterface, demo3::options::DefaultOptions>;
 ///     struct MyHandler {
-///         void handle(MyConnect& msg) {...}
-///         void handle(MyMsg1& msg) {...}
+///         void handle(MySomeMessage& msg) {...}
+///         void handle(MySomeOtherMessage& msg) {...}
 ///         ...
 ///         // Handle all unexpected or irrelevant messages.
 ///         void handle(MyInterface& msg) {...}
@@ -47,16 +47,6 @@ auto dispatchClientInputMessage(
 {
     using InterfaceType = typename std::decay<decltype(msg)>::type;
     switch(id) {
-    case demo3::MsgId_Connect:
-    {
-        using MsgType = demo3::message::Connect<InterfaceType, TProtOptions>;
-        return handler.handle(static_cast<MsgType&>(msg));
-    }
-    case demo3::MsgId_Msg1:
-    {
-        using MsgType = demo3::message::Msg1<InterfaceType, TProtOptions>;
-        return handler.handle(static_cast<MsgType&>(msg));
-    }
     default:
         break;
     };

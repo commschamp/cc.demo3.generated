@@ -6,8 +6,6 @@
 #pragma once
 
 #include <tuple>
-#include "demo3/message/Connect.h"
-#include "demo3/message/Msg1.h"
 #include "demo3/options/DefaultOptions.h"
 
 namespace demo3
@@ -22,8 +20,6 @@ namespace input
 template <typename TBase, typename TOpt = demo3::options::DefaultOptions>
 using ClientInputMessages =
     std::tuple<
-        demo3::message::Connect<TBase, TOpt>,
-        demo3::message::Msg1<TBase, TOpt>
     >;
 
 } // namespace input
