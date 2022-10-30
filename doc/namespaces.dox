@@ -1,29 +1,29 @@
-/// @namespace demo3
+/// @namespace cc_demo3
 /// @brief Protocol specific namespace.
 
-/// @namespace demo3::message
-/// @brief Namespace for all the messages in demo3 namespace.
+/// @namespace cc_demo3::message
+/// @brief Namespace for all the messages in cc_demo3 namespace.
 
-/// @namespace demo3::field
-/// @brief Namespace for all the stand alone fields defined in demo3 namespace.
+/// @namespace cc_demo3::field
+/// @brief Namespace for all the stand alone fields defined in cc_demo3 namespace.
 
-/// @namespace demo3::frame
-/// @brief Namespace for all the frames defined in demo3 namespace.
+/// @namespace cc_demo3::frame
+/// @brief Namespace for all the frames defined in cc_demo3 namespace.
 
-/// @namespace demo3::frame::layer
-/// @brief Namespace for the custom frame layers defined in demo3 namespace.
+/// @namespace cc_demo3::frame::layer
+/// @brief Namespace for the custom frame layers defined in cc_demo3 namespace.
 
-/// @namespace demo3::frame::checksum
-/// @brief Namespace for the custom frame layers defined in demo3 namespace.
+/// @namespace cc_demo3::frame::checksum
+/// @brief Namespace for the custom frame layers defined in cc_demo3 namespace.
 
 
-/// @namespace demo3::options
+/// @namespace cc_demo3::options
 /// @brief Main namespace for the various protocol options.
 
-/// @namespace demo3::input
+/// @namespace cc_demo3::input
 /// @brief Main namespace for hold input messages bundles.
 
-/// @namespace demo3::dispatch
+/// @namespace cc_demo3::dispatch
 /// @brief Main namespace for the various message dispatch functions.
 
 
