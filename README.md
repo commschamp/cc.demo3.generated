@@ -1,12 +1,11 @@
 # Overview
-This repository contains **generated** definition of **demo3** 
-synthetic demo protocol for 
-[CommsChampion Ecosystem](https://commschamp.github.io). 
+This repository contains code **generated** by the [commsdsl2comms](https://github.com/commschamp/commsdsl)
+using the [CommsDSL](https://github.com/commschamp/CommsDSL-Specification) protocol definition schema files
+residing in the [cc.demo3.commsdsl](https://github.com/commschamp/cc.demo3.commsdsl) project.
 
-Please read the
-[Generated CMake Project Walkthrough](https://github.com/commschamp/commsdsl/blob/master/doc/GeneratedProjectWalkthrough.md)
-documentation page for details on this repository internals.
+Applicable Documentation:
 
-Please refer to [cc.demo3.commsdsl](https://github.com/commschamp/cc.demo3.commsdsl) 
-origin protocol definition repository. Any issues, questions and/or feature requests
-should be submitted against it.
+- [Generated CMake Project Walkthrough](https://github.com/commschamp/commsdsl/blob/master/doc/GeneratedProjectWalkthrough.md)
+
+Any issues, questions and/or feature requests
+should be submitted against [cc.demo3.commsdsl](https://github.com/commschamp/cc.demo3.commsdsl) project.
