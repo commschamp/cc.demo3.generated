@@ -205,4 +205,3 @@
 ///     msg.version() = 4U;
 ///     msg.doRefresh(); // will update exists/missing state of every dependent field
 /// @endcode
-
